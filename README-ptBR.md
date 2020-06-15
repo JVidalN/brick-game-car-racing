@@ -1,13 +1,13 @@
 <h1 align="center">
-  JavaScript(JS) Version Of The Classic Brick Game Car Racing.
+  Versão JavaScript(JS) do Clássico Jogo de Carro do Mini Game "Brick Game".
 </h1>
 
 <h3 align="center">
-  <a href="readme-ptBR.md">Portuguese version</a>
+  <a href="README.md">Versão em Inglês</a>
 </h3>
 
 <h4 align="center">
-  This is my first game in JS, created to pratice my skill.
+  Este é meu primeiro jogo em JS, criado para praticar minha habilidades.
 </h4>
 
 <p align="center">
@@ -28,8 +28,8 @@
 </p>
 
 <p align="center">
-  <a href="#rocket-technologies-and-features">Technologies and Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="#rocket-technologies-and-features">Tecnologias e Recursos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">Licença</a>
 </p>
 
 <p align="center">
@@ -42,17 +42,17 @@
 ## :rocket: Technologies and Features
 
 - [ECMAScript][es]
-- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
+- [VS Code][vc] com [EditorConfig][vceditconfig] e [ESLint][vceslint]
 
-I used features of ECMAScript: `Use Strict`, `Dynamic Imports`, `Arrow Functions`, `Destructuring Assignment`, `String Interpolation`, `Const and Let Variables`. In addition, some design patterns were used, such as `Factory`, `Dependency Injection`.
+Utilizei os recursos do ECMAScript: `Use Strict`, `Dynamic Imports`, `Arrow Functions`, `Destructuring Assignment`, `String Interpolation`, `Variáveis Const e Let`. Além disso, utilizei alguns padrões de projeto, como: `Factory`, `Injeção de Dependência`, etc.
 
 ## :memo: License
 
-This project is under the MIT license. See the [LICENSE](https://github.com/jvidaln/brick-game-car-racing/blob/master/LICENSE) for more information.
+Este projeto está sob a licença do MIT. Veja a [LICENÇA](https://github.com/jvidaln/jvidaln.github.io/blob/master/LICENSE) para mais informações.
 
 ---
 
-Made with ♥ by Jean Vidal :wave: [Get in touch!](https://www.linkedin.com/in/jvidalnunes/)
+Feito com ♥ por Jean Vidal :wave: [Entre em contato!](https://www.linkedin.com/in/jvidalnunes/)
 
 [vc]: https://code.visualstudio.com/
 [vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
