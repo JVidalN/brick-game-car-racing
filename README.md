@@ -34,13 +34,6 @@
   <a href="#memo-license">License</a>
 </p>
 
-<p align="center">
-  <img src="assets/github/portfolio-auto-update.gif" width="100%">
-</p>
-<h3 align="center">
-  <a href="https://jvidaln.github.io/">Demo</a>
-</h3>
-
 ## :black_nib: Creation Steps
 
 - [x] Create the main car
