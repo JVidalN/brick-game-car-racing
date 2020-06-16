@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+}
+
+#brickGame {
+  border: 5px solid black;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  width: 100px;
+  height: 200px;
+}

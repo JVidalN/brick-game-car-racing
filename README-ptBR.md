@@ -28,8 +28,10 @@
 </p>
 
 <p align="center">
-  <a href="#rocket-technologies-and-features">Tecnologias e Recursos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">Licença</a>
+  <a href="#black_nib-passos-da-criação">Passos da Criação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#blue_book-regras-do-jogo">Regras do Jogo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-tecnologias-e-recursos">Tecnologias e Recursos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
 </p>
 
 <p align="center">
@@ -39,14 +41,54 @@
   <a href="https://jvidaln.github.io/">Demo</a>
 </h3>
 
-## :rocket: Technologies and Features
+## :black_nib: Passos da Criação
+
+- [x] Criar o carro principal
+- [ ] Criar as paredes
+- [ ] Criar os carros rivais
+- [ ] Criar os movimentos de:
+  - [ ] Paredes
+  - [ ] Carro Principal
+  - [ ] Carros Rivais
+- [ ] Criar área de status:
+  - [ ] Pontuação
+  - [ ] Maior Pontuação
+  - [ ] Objetivo
+  - [ ] Vida
+  - [ ] Nível
+  - [ ] Velocidade
+- [ ] Incluir áudio.
+- [ ] Tela de Fim de Jogo:
+  - [ ] Pontuação
+  - [ ] Maior Pontuação
+
+## :blue_book: Regras do Jogo
+
+- Vida:
+  - Inicia com 5 vidas.
+  - Cada colisão com um carro rival perde 1 vida.
+  - Após 5 vidas perdidas, reinicia pontuação, nível, velocidade e objetivo.
+- Maior Pontuação - Pontos máximos alcançados.
+- Objetivo:
+  - Ganha 1 ponto por carro ultrapassado.
+  - Limite de 50 pontos.
+- Velocidade - Aumenta em 1x a cada 50 pontos alcançados do Objetivo.
+- Nível - Sobe 1 nível a cada 50 pontos alcançados no Objetivo com Velocidade 3.
+- Pontuação:
+  - Nível 1 e Velocidade 1: 100 pontos por carro ultrapassado.
+  - Nível 1 e Velocidade 2: 150 pontos por carro ultrapassado.
+  - Nível 1 e Velocidade 3: 200 pontos por carro ultrapassado.
+  - Nível 2 e Velocidade 3: 210 pontos por carro ultrapassado.
+  - Nível 2 e Velocidade 4: 210 pontos por carro ultrapassado.
+
+## :rocket: Tecnologias e Recursos
 
 - [ECMAScript][es]
 - [VS Code][vc] com [EditorConfig][vceditconfig] e [ESLint][vceslint]
 
 Utilizei os recursos do ECMAScript: `Use Strict`, `Dynamic Imports`, `Arrow Functions`, `Destructuring Assignment`, `String Interpolation`, `Variáveis Const e Let`. Além disso, utilizei alguns padrões de projeto, como: `Factory`, `Injeção de Dependência`, etc.
 
-## :memo: License
+## :memo: Licença
 
 Este projeto está sob a licença do MIT. Veja a [LICENÇA](https://github.com/jvidaln/jvidaln.github.io/blob/master/LICENSE) para mais informações.
 

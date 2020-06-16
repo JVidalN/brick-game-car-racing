@@ -28,6 +28,8 @@
 </p>
 
 <p align="center">
+  <a href="#black_nib-creation-steps">Creation Steps</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#blue_book-game-rules">Game Rules</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-technologies-and-features">Technologies and Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
@@ -38,6 +40,45 @@
 <h3 align="center">
   <a href="https://jvidaln.github.io/">Demo</a>
 </h3>
+
+## :black_nib: Creation Steps
+
+- [x] Create the main car
+- [ ] Create the bricks
+- [ ] Create the rival cars
+- [ ] Create the movements of:
+  - [ ] Bricks
+  - [ ] Main car
+  - [ ] Rival cars
+- [ ] Create the status area:
+  - [ ] Score
+  - [ ] Hi-Score
+  - [ ] Level
+  - [ ] Speed
+  - [ ] Goal
+- [ ] Include sound
+- [ ] Game over screen:
+  - [ ] Score
+  - [ ] Hi-Score
+
+## :blue_book: Game Rules
+
+- File:
+  - Start with 5 lives.
+  - Each collision with a rival car loses 1 life.
+  - After 5 lives lost, reset score, level, speed and goal.
+- Hi-Score - Maximum points reached.
+- Goal:
+  - Ganha 1 point per car overtaken.
+  - 50 points limit.
+- Speed - Increases by 1x for every 50 Goal points achieved.
+- Level - Go up 1 level for every 50 points achieved in Goal with Speed ​​3.
+- Score:
+  - Level 1 e Speed 1: 100 points per car overtaken.
+  - Level 1 e Speed 2: 150 points per car overtaken.
+  - Level 1 e Speed 3: 200 points per car overtaken.
+  - Level 2 e Speed 3: 210 points per car overtaken.
+  - Level 2 e Speed 4: 210 points per car overtaken.
 
 ## :rocket: Technologies and Features
 
