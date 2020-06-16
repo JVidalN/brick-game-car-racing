@@ -24,7 +24,7 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/jvidaln/brick-game-car-racing.svg">
   </a>
   
-  <img alt="GitHub" src="https://img.shields.io/github/license/jvidaln/brick-game-car-racing"> 
+  <img alt="GitHub" src="https://img.shields.io/github/LICENSE/jvidaln/brick-game-car-racing"> 
 </p>
 
 <p align="center">

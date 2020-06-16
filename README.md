@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  <a href="readme-ptBR.md">Portuguese version</a>
+  <a href="README-ptBR.md">Portuguese version</a>
 </h3>
 
 <h4 align="center">
@@ -24,7 +24,7 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/jvidaln/brick-game-car-racing.svg">
   </a>
   
-  <img alt="GitHub" src="https://img.shields.io/github/license/jvidaln/brick-game-car-racing"> 
+  <img alt="GitHub" src="https://img.shields.io/github/LICENSE/jvidaln/brick-game-car-racing"> 
 </p>
 
 <p align="center">
