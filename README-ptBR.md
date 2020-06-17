@@ -37,12 +37,14 @@
 ## :black_nib: Passos da Criação
 
 - [x] Criar o carro principal
-- [ ] Criar as paredes
-- [ ] Criar os carros rivais
+- [x] Criar as paredes
+- [x] Criar os carros rivais
 - [ ] Criar os movimentos de:
+  - [x] Carro Principal
   - [ ] Paredes
-  - [ ] Carro Principal
   - [ ] Carros Rivais
+- [x] Criar área não utrapassável
+- [ ] Criar colisão
 - [ ] Criar área de status:
   - [ ] Pontuação
   - [ ] Maior Pontuação
@@ -79,7 +81,7 @@
 - [ECMAScript][es]
 - [VS Code][vc] com [EditorConfig][vceditconfig] e [ESLint][vceslint]
 
-Utilizei os recursos do ECMAScript: `Use Strict`, `Dynamic Imports`, `Arrow Functions`, `Destructuring Assignment`, `String Interpolation`, `Variáveis Const e Let`. Além disso, utilizei alguns padrões de projeto, como: `Factory`, `Injeção de Dependência`, etc.
+Utilizei os recursos do ECMAScript: `Use Strict`, `String Interpolation`, `Variáveis Const e Let`. Além disso, utilizei alguns padrões de projeto, como: `Factory`, `Injeção de Dependência`, `Observer`, `Command` etc.
 
 ## :memo: Licença
 

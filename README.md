@@ -37,12 +37,14 @@
 ## :black_nib: Creation Steps
 
 - [x] Create the main car
-- [ ] Create the bricks
-- [ ] Create the rival cars
+- [x] Create the bricks
+- [x] Create the rival cars
 - [ ] Create the movements of:
+  - [x] Main car
   - [ ] Bricks
-  - [ ] Main car
   - [ ] Rival cars
+- [x] Create non-passable area
+- [ ] Create collision
 - [ ] Create the status area:
   - [ ] Score
   - [ ] Hi-Score
@@ -78,7 +80,7 @@
 - [ECMAScript][es]
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
-I used features of ECMAScript: `Use Strict`, `Dynamic Imports`, `Arrow Functions`, `Destructuring Assignment`, `String Interpolation`, `Const and Let Variables`. In addition, some design patterns were used, such as `Factory`, `Dependency Injection`.
+I used features of ECMAScript: `Use Strict`, `String Interpolation`, `Const and Let Variables`. In addition, some design patterns were used, such as `Factory`, `Dependency Injection`, `Observer`, `Command`.
 
 ## :memo: License
 
