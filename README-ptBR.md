@@ -39,11 +39,11 @@
 - [x] Criar o carro principal
 - [x] Criar as paredes
 - [x] Criar os carros rivais
-- [ ] Criar os movimentos de:
+- [x] Criar os movimentos de:
   - [x] Carro Principal
   - [x] Paredes
   - [x] Carros Rivais
-- [] Criar carros rivais ramdômicos
+- [x] Criar movimentos randomicos dos carros rivais
 - [x] Criar área não utrapassável
 - [ ] Criar colisão
 - [ ] Criar área de status:

@@ -2,14 +2,9 @@
 
 const canvas = document.querySelector("canvas[id='brickGame']");
 const context = canvas.getContext('2d');
-let speed = 200;
-// 900
-// 750
-// 500
-// 450
-// 300
 
-function createGame() {
+const createGame = () => {
+  let speed = 250;
   const state = {
     walls: {
       brickLeft1: { x: 0, y: 0 },
@@ -44,79 +39,121 @@ function createGame() {
       brickRight16: { x: 9, y: 18 },
     },
     mainCar: {
-      body1: { x: 3, y: 16 },
-      body2: { x: 4, y: 17 },
-      body3: { x: 2, y: 17 },
-      body4: { x: 3, y: 17 },
-      body5: { x: 3, y: 18 },
-      body6: { x: 4, y: 19 },
-      body7: { x: 2, y: 19 },
+      position: { x: 3, y: 16 },
+      get body1() {
+        return { x: this.position.x, y: this.position.y };
+      },
+      get body2() {
+        return { x: this.position.x + 1, y: this.position.y + 1 };
+      },
+      get body3() {
+        return { x: this.position.x - 1, y: this.position.y + 1 };
+      },
+      get body4() {
+        return { x: this.position.x, y: this.position.y + 1 };
+      },
+      get body5() {
+        return { x: this.position.x, y: this.position.y + 2 };
+      },
+      get body6() {
+        return { x: this.position.x + 1, y: this.position.y + 3 };
+      },
+      get body7() {
+        return { x: this.position.x - 1, y: this.position.y + 3 };
+      },
     },
     rivalCars: {
       rival1: {
-        body1: { x: 6, y: -11 },
-        body2: { x: 7, y: -12 },
-        body3: { x: 5, y: -12 },
-        body4: { x: 6, y: -12 },
-        body5: { x: 6, y: -13 },
-        body6: { x: 7, y: -14 },
-        body7: { x: 5, y: -14 },
+        position: { x: 6, y: -11 },
+        get body1() {
+          return { x: this.position.x, y: this.position.y };
+        },
+        get body2() {
+          return { x: this.position.x + 1, y: this.position.y - 1 };
+        },
+        get body3() {
+          return { x: this.position.x - 1, y: this.position.y - 1 };
+        },
+        get body4() {
+          return { x: this.position.x, y: this.position.y - 1 };
+        },
+        get body5() {
+          return { x: this.position.x, y: this.position.y - 2 };
+        },
+        get body6() {
+          return { x: this.position.x + 1, y: this.position.y - 3 };
+        },
+        get body7() {
+          return { x: this.position.x - 1, y: this.position.y - 3 };
+        },
       },
       rival2: {
-        body1: { x: 6, y: -1 },
-        body2: { x: 7, y: -2 },
-        body3: { x: 5, y: -2 },
-        body4: { x: 6, y: -2 },
-        body5: { x: 6, y: -3 },
-        body6: { x: 7, y: -4 },
-        body7: { x: 5, y: -4 },
+        position: { x: 6, y: -1 },
+        get body1() {
+          return { x: this.position.x, y: this.position.y };
+        },
+        get body2() {
+          return { x: this.position.x + 1, y: this.position.y - 1 };
+        },
+        get body3() {
+          return { x: this.position.x - 1, y: this.position.y - 1 };
+        },
+        get body4() {
+          return { x: this.position.x, y: this.position.y - 1 };
+        },
+        get body5() {
+          return { x: this.position.x, y: this.position.y - 2 };
+        },
+        get body6() {
+          return { x: this.position.x + 1, y: this.position.y - 3 };
+        },
+        get body7() {
+          return { x: this.position.x - 1, y: this.position.y - 3 };
+        },
       },
     },
   };
 
-  function moveObject(command) {
+  const toRandomMove = () => {
+    return Boolean(Math.floor(Math.random() * 100) % 2);
+  };
+
+  const moveToLeft = (object) => {
+    if (object['position'].x - 3 >= 2) {
+      object['position'].x = Math.max(object['position'].x - 3, 0);
+    }
+  };
+
+  const moveToRight = (object) => {
+    if (object['position'].x + 3 <= 7) {
+      object['position'].x = Math.max(object['position'].x + 3, 0);
+    }
+  };
+
+  const moveObject = (command) => {
     const acceptMoves = {
       ArrowLeft(object) {
-        for (const objectBody in object) {
-          if (object[objectBody].x - 3 >= 2) {
-            object[objectBody].x = Math.max(object[objectBody].x - 3, 0);
-          }
-        }
+        moveToLeft(object);
       },
       ArrowRight(object) {
-        for (const objectBody in object) {
-          if (object[objectBody].x + 3 <= 7) {
-            object[objectBody].x = Math.min(object[objectBody].x + 3, screen.width);
-          }
-        }
+        moveToRight(object);
       },
       ArrowDown(object) {
         if (command.object === 'rivalCars') {
           for (const rival in object) {
-            const random = Math.floor(Math.random() * 100);
-            const right = Boolean(random % 2);
-            //console.log(right);
-            for (const rivalBody in object[rival]) {
-              if (object[rival][rivalBody].y + 1 < 20) {
-                object[rival][rivalBody].y = Math.min(object[rival][rivalBody].y + 1, 20);
-              } else {
-                if (object[rival][rivalBody].x + 3 <= 7) {
-                  object[rival][rivalBody].x = Math.min(object[rival][rivalBody].x + 3, 10);
-                }
-                if (object[rival][rivalBody].x - 3 >= 2) {
-                  object[rival][rivalBody].x = Math.max(object[rival][rivalBody].x - 3, 0);
-                }
-                object[rival][rivalBody].y = 0;
-              }
+            if (object[rival]['position'].y + 1 < 24) {
+              object[rival]['position'].y = Math.min(object[rival]['position'].y + 1, 24);
+            } else {
+              toRandomMove() ? moveToLeft(object[rival]) : moveToRight(object[rival]);
+
+              object[rival]['position'].y = 0;
             }
           }
         } else if (command.object === 'walls') {
           for (const objectBody in object) {
-            if (object[objectBody].y + 1 < 20) {
-              object[objectBody].y = Math.min(object[objectBody].y + 1, 20);
-            } else {
-              object[objectBody].y = 0;
-            }
+            object[objectBody].y + 1 < 20
+              ? (object[objectBody].y = Math.min(object[objectBody].y + 1, 20))
+              : (object[objectBody].y = 0);
           }
         }
       },
@@ -129,7 +166,7 @@ function createGame() {
     if (moveFunction) {
       moveFunction(object);
     }
-  }
+  };
 
   function playGame() {
     const commandWalls = {
@@ -148,18 +185,38 @@ function createGame() {
     setTimeout(playGame, speed);
   }
 
+  function changeSpeed(speedLevel) {
+    switch (speedLevel) {
+      case 1:
+        speed = 250;
+        break;
+      case 2:
+        speed = 150;
+        break;
+      case 3:
+        speed = 100;
+        break;
+      case 4:
+        speed = 80;
+        break;
+      case 5:
+        speed = 50;
+        break;
+      default:
+        speed = newSpeed;
+        break;
+    }
+  }
+
   return {
     moveObject,
     state,
     playGame,
+    changeSpeed,
   };
-}
+};
 
-const game = createGame();
-const keyboardListener = createKeyboardListener();
-keyboardListener.subscribe(game.moveObject);
-
-function createKeyboardListener() {
+const createKeyboardListener = () => {
   document.addEventListener('keydown', handleKeyDown);
   const state = {
     observers: [],
@@ -189,31 +246,47 @@ function createKeyboardListener() {
   return {
     subscribe,
   };
-}
+};
 
-renderScreen();
-
-function renderScreen() {
+const renderScreen = () => {
   context.fillStyle = 'silver';
   context.clearRect(0, 0, 10, 20);
 
   for (const object in game.state) {
-    if (object === 'rivalCars') {
-      for (const rivals in game.state[object]) {
-        for (const rivalBody in game.state[object][rivals]) {
-          const body = game.state[object][rivals][rivalBody];
-          context.fillStyle = '#922';
+    switch (object) {
+      case 'rivalCars':
+        for (const rivals in game.state[object]) {
+          for (const rivalBody in game.state[object][rivals]) {
+            const body = game.state[object][rivals][rivalBody];
+            context.fillStyle = '#922';
+            context.fillRect(body.x, body.y, 1, 1);
+          }
+        }
+        break;
+      case 'mainCar':
+        for (const objectBody in game.state[object]) {
+          if (objectBody !== 'position') {
+            const body = game.state[object][objectBody];
+            context.fillStyle = '#000';
+            context.fillRect(body.x, body.y, 1, 1);
+          }
+        }
+        break;
+      case 'walls':
+        for (const objectBody in game.state[object]) {
+          const body = game.state[object][objectBody];
+          context.fillStyle = '#292';
           context.fillRect(body.x, body.y, 1, 1);
         }
-      }
-    } else {
-      for (const objectBody in game.state[object]) {
-        const body = game.state[object][objectBody];
-        context.fillStyle = object === 'walls' ? '#292' : '#000';
-        context.fillRect(body.x, body.y, 1, 1);
-      }
+        break;
     }
   }
 
   requestAnimationFrame(renderScreen);
-}
+};
+
+const game = createGame();
+const keyboardListener = createKeyboardListener();
+keyboardListener.subscribe(game.moveObject);
+
+renderScreen();

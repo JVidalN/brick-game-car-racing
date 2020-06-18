@@ -39,11 +39,11 @@
 - [x] Create the main car
 - [x] Create the bricks
 - [x] Create the rival cars
-- [ ] Create the movements of:
+- [x] Create the movements of:
   - [x] Main car
   - [x] Bricks
   - [x] Rival cars
-- [ ] Create ramdom rival cars
+- [x] Create random moves from rival cars
 - [x] Create non-passable area
 - [ ] Create collision
 - [ ] Create the status area:
