@@ -2,6 +2,12 @@
 
 const canvas = document.querySelector("canvas[id='brickGame']");
 const context = canvas.getContext('2d');
+let speed = 200;
+// 900
+// 750
+// 500
+// 450
+// 300
 
 function createGame() {
   const state = {
@@ -47,33 +53,70 @@ function createGame() {
       body7: { x: 2, y: 19 },
     },
     rivalCars: {
-      body1: { x: 6, y: 3 },
-      body2: { x: 7, y: 2 },
-      body3: { x: 5, y: 2 },
-      body4: { x: 6, y: 2 },
-      body5: { x: 6, y: 1 },
-      body6: { x: 7, y: 0 },
-      body7: { x: 5, y: 0 },
+      rival1: {
+        body1: { x: 6, y: -11 },
+        body2: { x: 7, y: -12 },
+        body3: { x: 5, y: -12 },
+        body4: { x: 6, y: -12 },
+        body5: { x: 6, y: -13 },
+        body6: { x: 7, y: -14 },
+        body7: { x: 5, y: -14 },
+      },
+      rival2: {
+        body1: { x: 6, y: -1 },
+        body2: { x: 7, y: -2 },
+        body3: { x: 5, y: -2 },
+        body4: { x: 6, y: -2 },
+        body5: { x: 6, y: -3 },
+        body6: { x: 7, y: -4 },
+        body7: { x: 5, y: -4 },
+      },
     },
   };
 
   function moveObject(command) {
-    console.log(`game.moveObject() -> Moving ${command.object} with ${command.keyPressed}`);
-
     const acceptMoves = {
       ArrowLeft(object) {
-        console.log('Moving object left');
         for (const objectBody in object) {
           if (object[objectBody].x - 3 >= 2) {
-            object[objectBody].x = object[objectBody].x - 3;
+            object[objectBody].x = Math.max(object[objectBody].x - 3, 0);
           }
         }
       },
       ArrowRight(object) {
-        console.log('Moving object right');
         for (const objectBody in object) {
           if (object[objectBody].x + 3 <= 7) {
-            object[objectBody].x = object[objectBody].x + 3;
+            object[objectBody].x = Math.min(object[objectBody].x + 3, screen.width);
+          }
+        }
+      },
+      ArrowDown(object) {
+        if (command.object === 'rivalCars') {
+          for (const rival in object) {
+            const random = Math.floor(Math.random() * 100);
+            const right = Boolean(random % 2);
+            //console.log(right);
+            for (const rivalBody in object[rival]) {
+              if (object[rival][rivalBody].y + 1 < 20) {
+                object[rival][rivalBody].y = Math.min(object[rival][rivalBody].y + 1, 20);
+              } else {
+                if (object[rival][rivalBody].x + 3 <= 7) {
+                  object[rival][rivalBody].x = Math.min(object[rival][rivalBody].x + 3, 10);
+                }
+                if (object[rival][rivalBody].x - 3 >= 2) {
+                  object[rival][rivalBody].x = Math.max(object[rival][rivalBody].x - 3, 0);
+                }
+                object[rival][rivalBody].y = 0;
+              }
+            }
+          }
+        } else if (command.object === 'walls') {
+          for (const objectBody in object) {
+            if (object[objectBody].y + 1 < 20) {
+              object[objectBody].y = Math.min(object[objectBody].y + 1, 20);
+            } else {
+              object[objectBody].y = 0;
+            }
           }
         }
       },
@@ -88,9 +131,27 @@ function createGame() {
     }
   }
 
+  function playGame() {
+    const commandWalls = {
+      object: 'walls',
+      keyPressed: 'ArrowDown',
+    };
+
+    const commandRivalCars = {
+      object: 'rivalCars',
+      keyPressed: 'ArrowDown',
+    };
+
+    moveObject(commandWalls);
+    moveObject(commandRivalCars);
+
+    setTimeout(playGame, speed);
+  }
+
   return {
     moveObject,
     state,
+    playGame,
   };
 }
 
@@ -109,8 +170,6 @@ function createKeyboardListener() {
   }
 
   function notifyAll(command) {
-    console.log(`keyboardListener -> Nofifying ${state.observers.length} observers`);
-
     for (const observerFunction of state.observers) {
       observerFunction(command);
     }
@@ -139,10 +198,20 @@ function renderScreen() {
   context.clearRect(0, 0, 10, 20);
 
   for (const object in game.state) {
-    for (const objectBody in game.state[object]) {
-      const body = game.state[object][objectBody];
-      context.fillStyle = object === 'walls' ? '#292' : object === 'mainCar' ? '#000' : '#922';
-      context.fillRect(body.x, body.y, 1, 1);
+    if (object === 'rivalCars') {
+      for (const rivals in game.state[object]) {
+        for (const rivalBody in game.state[object][rivals]) {
+          const body = game.state[object][rivals][rivalBody];
+          context.fillStyle = '#922';
+          context.fillRect(body.x, body.y, 1, 1);
+        }
+      }
+    } else {
+      for (const objectBody in game.state[object]) {
+        const body = game.state[object][objectBody];
+        context.fillStyle = object === 'walls' ? '#292' : '#000';
+        context.fillRect(body.x, body.y, 1, 1);
+      }
     }
   }
 
