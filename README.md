@@ -36,26 +36,29 @@
 
 ## :black_nib: Creation Steps
 
-- [x] Create the main car
-- [x] Create the bricks
-- [x] Create the rival cars
-- [x] Create the movements of:
-  - [x] Main car
-  - [x] Bricks
-  - [x] Rival cars
-- [x] Create random moves from rival cars
-- [x] Create non-passable area
-- [ ] Create collision
-- [ ] Create the status area:
+- Game Area
+  - [x] Create the main car
+  - [x] Create the bricks
+  - [x] Create the rival cars
+  - [x] Create the movements of:
+    - [x] Main car
+    - [x] Bricks
+    - [x] Rival cars
+  - [x] Create random moves from rival cars
+  - [x] Create non-passable area
+  - [ ] Create collision
+- Status Area
   - [ ] Score
   - [ ] Hi-Score
+  - [ ] Life
   - [ ] Level
   - [ ] Speed
   - [ ] Goal
-- [ ] Include sound
-- [ ] Game over screen:
-  - [ ] Score
-  - [ ] Hi-Score
+- Others
+  - [ ] Include sound
+  - [ ] Game over screen:
+    - [ ] Score
+    - [ ] Hi-Score
 
 ## :blue_book: Game Rules
 

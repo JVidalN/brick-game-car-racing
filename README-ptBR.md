@@ -36,27 +36,29 @@
 
 ## :black_nib: Passos da Criação
 
-- [x] Criar o carro principal
-- [x] Criar as paredes
-- [x] Criar os carros rivais
-- [x] Criar os movimentos de:
-  - [x] Carro Principal
-  - [x] Paredes
-  - [x] Carros Rivais
-- [x] Criar movimentos randomicos dos carros rivais
-- [x] Criar área não utrapassável
-- [ ] Criar colisão
-- [ ] Criar área de status:
+- Área do Jogo
+  - [x] Criar o carro principal
+  - [x] Criar as paredes
+  - [x] Criar os carros rivais
+  - [x] Criar os movimentos de:
+    - [x] Carro Principal
+    - [x] Paredes
+    - [x] Carros Rivais
+  - [x] Criar movimentos randomicos dos carros rivais
+  - [x] Criar área não utrapassável
+  - [ ] Criar colisão
+- Área de status:
   - [ ] Pontuação
   - [ ] Maior Pontuação
   - [ ] Objetivo
   - [ ] Vida
   - [ ] Nível
   - [ ] Velocidade
-- [ ] Incluir áudio.
-- [ ] Tela de Fim de Jogo:
-  - [ ] Pontuação
-  - [ ] Maior Pontuação
+- Outros
+  - [ ] Incluir áudio.
+  - [ ] Tela de Fim de Jogo:
+    - [ ] Pontuação
+    - [ ] Maior Pontuação
 
 ## :blue_book: Regras do Jogo
 
