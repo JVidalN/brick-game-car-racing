@@ -2,13 +2,14 @@ const createGame = () => {
   const toRandomMove = () => {
     return Boolean(Math.floor(Math.random() * 100) % 2);
   };
-  let speed = 250;
   const state = {
+    pause: false,
+    speed: 1000,
     walls: {},
     mainCar: {},
     rivalCars: {},
     screen: {
-      widith: 10,
+      width: 10,
       height: 20,
     },
   };
@@ -61,7 +62,8 @@ const createGame = () => {
     const object = state[command.object];
     const moveFunction = acceptMoves[keyPressed];
 
-    if (object && moveFunction) {
+    if (object && !state.pause && moveFunction) {
+      checkForCarCollision();
       moveFunction(object);
     }
   };
@@ -162,7 +164,7 @@ const createGame = () => {
 
     const voidSpaces = [3, 7, 11, 15, 19];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < state.screen.height; i++) {
       if (!voidSpaces.includes(i)) {
         const commandAddBrickLeft = {
           brickId: `brickLeft${i + 1}`,
@@ -171,7 +173,7 @@ const createGame = () => {
         };
         const commandAddBrickRight = {
           brickId: `brickRight${i + 1}`,
-          brickX: 9,
+          brickX: state.screen.width - 1,
           brickY: i,
         };
         addBricks(commandAddBrickLeft);
@@ -191,32 +193,45 @@ const createGame = () => {
       keyPressed: 'ArrowDown',
     };
 
-    moveObject(commandWalls);
     moveObject(commandRivalCars);
+    moveObject(commandWalls);
 
-    setTimeout(playGame, speed);
+    setTimeout(playGame, state.speed);
   };
 
   const changeSpeed = (speedLevel) => {
     switch (speedLevel) {
       case 1:
-        speed = 250;
+        state.speed = 250;
         break;
       case 2:
-        speed = 150;
+        state.speed = 150;
         break;
       case 3:
-        speed = 100;
+        state.speed = 100;
         break;
       case 4:
-        speed = 80;
+        state.speed = 80;
         break;
       case 5:
-        speed = 50;
+        state.speed = 50;
         break;
       default:
-        speed = newSpeed;
+        state.speed = newSpeed;
         break;
+    }
+  };
+
+  const checkForCarCollision = () => {
+    if (
+      Object.values(state.rivalCars).some((rivalCar) => {
+        return (
+          rivalCar.position.y >= state.mainCar.position.y - 3 &&
+          rivalCar.position.x === state.mainCar.position.x
+        );
+      })
+    ) {
+      state.pause = true;
     }
   };
 

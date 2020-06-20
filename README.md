@@ -68,7 +68,7 @@
 
 ## :blue_book: Game Rules
 
-- File:
+- Life:
   - Start with 5 lives.
   - Each collision with a rival car loses 1 life.
   - After 5 lives lost, reset score, level, speed and goal.
