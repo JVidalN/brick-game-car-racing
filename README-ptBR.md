@@ -34,6 +34,12 @@
   <a href="#memo-licença">Licença</a>
 </p>
 
+<h3 align="center">
+  <a href="https://jvidaln.github.io/brick-game-car-racing/">
+    <img alt="Demo On GitHub Pages" src="https://dummyimage.com/240x46/6b506b/ffffff.png&text=Demo+On+Git+Pages">
+  </a>
+</h3>
+
 ## :black_nib: Passos da Criação
 
 - Área do Jogo

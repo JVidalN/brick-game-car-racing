@@ -10,7 +10,10 @@ const screen = document.getElementById('brickGame');
 renderScreen(screen, game, requestAnimationFrame);
 
 const init = () => {
+  game.addWall();
+  game.addCars();
   game.playGame();
+
   renderScreen(screen, game, requestAnimationFrame);
 };
 
