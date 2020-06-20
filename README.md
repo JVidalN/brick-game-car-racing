@@ -52,7 +52,7 @@
     - [x] Rival cars
   - [x] Create random moves from rival cars
   - [x] Create non-passable area
-  - [ ] Create collision
+  - [x] Create collision
 - Status Area
   - [ ] Score
   - [ ] Hi-Score
@@ -61,7 +61,8 @@
   - [ ] Speed
   - [ ] Goal
 - Others
-  - [ ] Include sound
+  - [ ] Include backgroud
+  - [ ] Include sounds
   - [ ] Game over screen:
     - [ ] Score
     - [ ] Hi-Score

@@ -52,7 +52,7 @@
     - [x] Carros Rivais
   - [x] Criar movimentos randomicos dos carros rivais
   - [x] Criar área não utrapassável
-  - [ ] Criar colisão
+  - [x] Criar colisão
 - Área de status:
   - [ ] Pontuação
   - [ ] Maior Pontuação
@@ -61,7 +61,8 @@
   - [ ] Nível
   - [ ] Velocidade
 - Outros
-  - [ ] Incluir áudio.
+  - [ ] Incluir plano de fundo
+  - [ ] Incluir áudios
   - [ ] Tela de Fim de Jogo:
     - [ ] Pontuação
     - [ ] Maior Pontuação
