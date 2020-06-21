@@ -1,12 +1,38 @@
+html,
 body {
-  text-align: center;
+  height: 100%;
+  margin: 0;
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  background-image: url('../images/screen.jpg');
+  background-repeat: no-repeat;
+  background-size: 275px 490px;
+  background-attachment: fixed;
+  background-position: relative;
 }
 
 #brickGame {
-  border: 5px solid black;
+  background-color: #889774;
+  border: 1px solid black;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   image-rendering: -moz-crisp-edges;
   width: 100px;
   height: 200px;
+  position: absolute;
+  top: 42px;
+  left: 55px;
 }
+
+/* #circle {
+  margin-left: 50vh;
+  margin-top: 10vh;
+  background: #01afef;
+  opacity: 100%;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+} */

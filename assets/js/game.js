@@ -5,6 +5,7 @@ const createGame = () => {
 
   const state = {
     pause: false,
+    collision: false,
     status: {
       speed: 1,
       life: 5,
@@ -190,6 +191,53 @@ const createGame = () => {
     }
   };
 
+  const speed = () => {
+    const getSpeed = () => {
+      let speedTime = {};
+      speedTime = 300 - 50 * state.status.speed;
+
+      return speedTime;
+    };
+
+    const setSpeed = (speedLevel) => {
+      state.status.speed = speedLevel;
+    };
+
+    return {
+      getSpeed,
+      setSpeed,
+    };
+  };
+
+  const updateStatus = () => {
+    const checkOvertaking = () => {
+      return Object.values(state.rivalCars).some((rivalCar) => {
+        return (
+          !state.collision &&
+          rivalCar.position.y === state.mainCar.position.y &&
+          rivalCar.position.x !== state.mainCar.position.x
+        );
+      });
+    };
+
+    if (!state.pause) {
+      let { speed, level, score, hiScore, goal } = state.status;
+      console.log({ speed, level, score, hiScore, goal });
+    }
+
+    if (!state.pause && checkOvertaking()) {
+      if (state.status.goal < 15) {
+        state.status.goal++;
+      } else {
+        speed().setSpeed(state.status.speed + 1);
+        state.status.level = state.status.speed - 1;
+        state.status.goal = 0;
+      }
+      state.status.score += 100 + 20 * state.status.level;
+      state.status.hiScore = state.status.score;
+    }
+  };
+
   const playGame = () => {
     const commandWalls = {
       object: 'walls',
@@ -203,92 +251,9 @@ const createGame = () => {
 
     moveObject(commandRivalCars);
     moveObject(commandWalls);
+    updateStatus();
 
     setTimeout(playGame, speed().getSpeed());
-  };
-
-  const speed = () => {
-    const getSpeedLevel = () => {
-      let speedLevel = {};
-      switch (state.status.speed) {
-        case 250:
-          speedLevel = 1;
-          break;
-        case 150:
-          speedLevel = 2;
-          break;
-        case 100:
-          speedLevel = 3;
-          break;
-        case 80:
-          speedLevel = 4;
-          break;
-        case 50:
-          speedLevel = 5;
-          break;
-        default:
-          speedLevel = 0;
-          break;
-      }
-
-      return speedLevel;
-    };
-
-    const getSpeed = () => {
-      let speedTime = {};
-      const speedLevel = state.status.speed;
-      switch (speedLevel) {
-        case 1:
-          speedTime = 250;
-          break;
-        case 2:
-          speedTime = 150;
-          break;
-        case 3:
-          speedTime = 100;
-          break;
-        case 4:
-          speedTime = 80;
-          break;
-        case 5:
-          speedTime = 50;
-          break;
-        default:
-          speedTime = speedLevel;
-          break;
-      }
-
-      return speedTime;
-    };
-
-    const setSpeed = (speedLevel) => {
-      switch (speedLevel) {
-        case 1:
-          state.status.speed = 250;
-          break;
-        case 2:
-          state.status.speed = 150;
-          break;
-        case 3:
-          state.status.speed = 100;
-          break;
-        case 4:
-          state.status.speed = 80;
-          break;
-        case 5:
-          state.status.speed = 50;
-          break;
-        default:
-          state.status.speed = speedLevel;
-          break;
-      }
-    };
-
-    return {
-      getSpeedLevel,
-      getSpeed,
-      setSpeed,
-    };
   };
 
   const checkForCarCollision = () => {
@@ -301,6 +266,8 @@ const createGame = () => {
       })
     ) {
       state.pause = true;
+      state.collision = true;
+      state.status.life--;
     }
   };
 

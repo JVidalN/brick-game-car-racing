@@ -54,14 +54,15 @@
   - [x] Create non-passable area
   - [x] Create collision
 - Status Area
-  - [ ] Score
-  - [ ] Hi-Score
-  - [ ] Life
-  - [ ] Level
-  - [ ] Speed
-  - [ ] Goal
+  - [x] Create Score
+  - [x] Create Hi-Score
+  - [x] Create Life
+  - [x] Create Level
+  - [x] Create Speed
+  - [x] Create Goal
+  - [ ] Show Status Area
 - Others
-  - [ ] Include backgroud
+  - [x] Include backgroud
   - [ ] Include sounds
   - [ ] Game over screen:
     - [ ] Score

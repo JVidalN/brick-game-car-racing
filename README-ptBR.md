@@ -54,14 +54,15 @@
   - [x] Criar área não utrapassável
   - [x] Criar colisão
 - Área de status:
-  - [ ] Pontuação
-  - [ ] Maior Pontuação
-  - [ ] Objetivo
-  - [ ] Vida
-  - [ ] Nível
-  - [ ] Velocidade
+  - [x] Criar Pontuação
+  - [x] Criar Maior Pontuação
+  - [x] Criar Objetivo
+  - [x] Criar Vida
+  - [x] Criar Nível
+  - [x] Criar Velocidade
+  - [ ] Exibir área de status
 - Outros
-  - [ ] Incluir plano de fundo
+  - [x] Incluir plano de fundo
   - [ ] Incluir áudios
   - [ ] Tela de Fim de Jogo:
     - [ ] Pontuação

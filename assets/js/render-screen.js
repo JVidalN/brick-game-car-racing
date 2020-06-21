@@ -18,7 +18,7 @@ const renderScreen = (screen, game, requestAnimationFrame) => {
         for (const objectBody in game.state[object]) {
           if (objectBody !== 'position') {
             const body = game.state[object][objectBody];
-            context.fillStyle = '#000';
+            context.fillStyle = '#1a1a1a';
             context.fillRect(body.x, body.y, 1, 1);
           }
         }
@@ -26,7 +26,7 @@ const renderScreen = (screen, game, requestAnimationFrame) => {
       case 'walls':
         for (const objectBody in game.state[object]) {
           const body = game.state[object][objectBody];
-          context.fillStyle = '#292';
+          context.fillStyle = '#29429e';
           context.fillRect(body.x, body.y, 1, 1);
         }
         break;
