@@ -60,8 +60,11 @@
   - [x] Create Level
   - [x] Create Speed
   - [x] Create Goal
-  - [ ] Show Status Area
+  - [x] Show/Update Status
 - Others
+  - [ ] Create collision animation
+  - [ ] Create button to move by Mobile
+  - [ ] Save Hi-Score
   - [x] Include backgroud
   - [ ] Include sounds
   - [ ] Game over screen:

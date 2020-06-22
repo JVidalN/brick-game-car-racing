@@ -7,14 +7,15 @@ const keyboardListener = createKeyboardListener(document);
 keyboardListener.subscribe(game.moveObject);
 
 const screen = document.getElementById('brickGame');
-renderScreen(screen, game, requestAnimationFrame);
+const status = document.querySelector('div.gameStatus');
+renderScreen(screen, game, status, requestAnimationFrame);
 
 const init = () => {
   game.addWall();
   game.addCars();
   game.playGame();
 
-  renderScreen(screen, game, requestAnimationFrame);
+  renderScreen(screen, game, status, requestAnimationFrame);
 };
 
 init();

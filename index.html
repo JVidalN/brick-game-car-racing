@@ -8,11 +8,42 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="canonical" href="https://github.com/JVidalN/brick-game-car-racing" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Brick Game Car Racing</title>
   </head>
   <body>
-    <div class="game">
-      <canvas id="brickGame" width="10" height="20"></canvas>
+    <div class="gameBody">
+      <div class="gameScreen">
+        <canvas id="brickGame" width="10" height="20"></canvas>
+        <div class="gameStatus noselect">
+          <div class="score">
+            SCORE <br />
+            <small></small>
+          </div>
+          <div class="hiScore">
+            HI-SCORE <br />
+            <small>2100</small>
+          </div>
+          <br />
+          <div class="lifeStatus"></div>
+          <br />
+          <div class="speed">
+            SPEED <br />
+            <small>2</small>
+          </div>
+          <div class="level">
+            LEVEL <br />
+            <small>5</small>
+          </div>
+          <div class="goal">
+            GOAL <br />
+            <small>2/25</small>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="./assets/js/main.js"></script>
   </body>

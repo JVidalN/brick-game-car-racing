@@ -1,8 +1,4 @@
 const createGame = () => {
-  const toRandomMove = () => {
-    return Boolean(Math.floor(Math.random() * 100) % 2);
-  };
-
   const state = {
     pause: false,
     collision: false,
@@ -12,7 +8,10 @@ const createGame = () => {
       level: 1,
       score: 0,
       hiScore: 0,
-      goal: 0,
+      goal: {
+        current: 0,
+        max: 2,
+      },
     },
     walls: {},
     mainCar: {},
@@ -23,19 +22,23 @@ const createGame = () => {
     },
   };
 
-  const moveToLeft = (object) => {
-    if (object['position'].x - 3 >= 2) {
-      object['position'].x = Math.max(object['position'].x - 3, 0);
-    }
-  };
-
-  const moveToRight = (object) => {
-    if (object['position'].x + 3 <= 7) {
-      object['position'].x = Math.max(object['position'].x + 3, 0);
-    }
+  const randomNumber = () => {
+    return Boolean(Math.floor(Math.random() * 100) % 2);
   };
 
   const moveObject = (command) => {
+    const moveToLeft = (object) => {
+      if (object['position'].x - 3 >= 2) {
+        object['position'].x = Math.max(object['position'].x - 3, 0);
+      }
+    };
+
+    const moveToRight = (object) => {
+      if (object['position'].x + 3 <= 7) {
+        object['position'].x = Math.max(object['position'].x + 3, 0);
+      }
+    };
+
     const acceptMoves = {
       ArrowLeft(object) {
         moveToLeft(object);
@@ -52,7 +55,7 @@ const createGame = () => {
                 state.screen.height
               );
             } else {
-              toRandomMove() ? moveToLeft(object[rival]) : moveToRight(object[rival]);
+              randomNumber() ? moveToLeft(object[rival]) : moveToRight(object[rival]);
 
               object[rival]['position'].y = -4;
             }
@@ -141,7 +144,7 @@ const createGame = () => {
 
     const commandAddMainCar = {
       mainCarId: 'mainCar',
-      mainCarX: toRandomMove() ? 3 : 6,
+      mainCarX: randomNumber() ? 3 : 6,
       mainCarY: 16,
     };
 
@@ -220,18 +223,13 @@ const createGame = () => {
       });
     };
 
-    if (!state.pause) {
-      let { speed, level, score, hiScore, goal } = state.status;
-      console.log({ speed, level, score, hiScore, goal });
-    }
-
     if (!state.pause && checkOvertaking()) {
-      if (state.status.goal < 15) {
-        state.status.goal++;
+      if (state.status.goal.current < state.status.goal.max) {
+        state.status.goal.current++;
       } else {
+        state.status.goal.current = 0;
         speed().setSpeed(state.status.speed + 1);
         state.status.level = state.status.speed - 1;
-        state.status.goal = 0;
       }
       state.status.score += 100 + 20 * state.status.level;
       state.status.hiScore = state.status.score;

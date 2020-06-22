@@ -60,8 +60,11 @@
   - [x] Criar Vida
   - [x] Criar Nível
   - [x] Criar Velocidade
-  - [ ] Exibir área de status
+  - [x] Exibir/Atualizar Status
 - Outros
+  - [ ] Criar animação de colisão
+  - [ ] Criar botão para mover por Mobile
+  - [ ] Salvar maior pontuação
   - [x] Incluir plano de fundo
   - [ ] Incluir áudios
   - [ ] Tela de Fim de Jogo:

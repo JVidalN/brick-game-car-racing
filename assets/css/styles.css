@@ -1,10 +1,12 @@
 html,
 body {
+  font-family: 'Odibee Sans', cursive;
+  font-size: 12px;
   height: 100%;
   margin: 0;
 }
 
-.game {
+.gameBody {
   height: 100%;
   width: 100%;
   background-image: url('../images/screen.jpg');
@@ -14,25 +16,60 @@ body {
   background-position: relative;
 }
 
-#brickGame {
+.gameScreen {
   background-color: #889774;
-  border: 1px solid black;
+  width: 175px;
+  height: 212px;
+  position: relative;
+  top: 37px;
+  left: 51px;
+}
+
+#brickGame {
+  border: 1px solid rgba(0, 0, 0, 0.678);
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   image-rendering: -moz-crisp-edges;
   width: 100px;
   height: 200px;
   position: absolute;
-  top: 42px;
-  left: 55px;
+  top: 5px;
+  left: 5px;
 }
 
-/* #circle {
-  margin-left: 50vh;
-  margin-top: 10vh;
-  background: #01afef;
-  opacity: 100%;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-} */
+.gameStatus {
+  text-align: center;
+  width: 60px;
+  height: 202px;
+  position: relative;
+  top: 5px;
+  left: 110px;
+}
+
+.lifeStatus {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(0, 0, 0, 0.678);
+  width: 60px;
+  height: 40px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.life {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.678);
+  border: 1px solid #8897748f;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
