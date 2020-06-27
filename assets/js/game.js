@@ -213,6 +213,40 @@ const createGame = () => {
   };
 
   const updateStatus = () => {
+    const updateScore = () => {
+      state.status.score += 25 + 25 * state.status.level;
+    };
+
+    const updateSpeed = () => {
+      speed().setSpeed(state.status.speed + 1);
+    };
+
+    const updateLevel = () => {
+      switch (state.status.speed) {
+        case 1:
+        case 2:
+          state.status.level = 1;
+          break;
+        case 3:
+        case 4:
+          state.status.level = 2;
+          break;
+        case 5:
+        case 6:
+          state.status.level = 3;
+          break;
+      }
+    };
+
+    const updateHiScore = () => {
+      //INCLUIR VERIFICAÇÃO DE MAIOR PONTUAÇÃO SALVA
+      state.status.hiScore = state.status.score;
+    };
+
+    const updateGoal = (value) => {
+      state.status.goal.current = value;
+    };
+
     const checkOvertaking = () => {
       return Object.values(state.rivalCars).some((rivalCar) => {
         return (
@@ -223,17 +257,26 @@ const createGame = () => {
       });
     };
 
-    if (!state.pause && checkOvertaking()) {
-      if (state.status.goal.current < state.status.goal.max) {
-        state.status.goal.current++;
-      } else {
-        state.status.goal.current = 0;
-        speed().setSpeed(state.status.speed + 1);
-        state.status.level = state.status.speed - 1;
+    const updateAll = () => {
+      if (!state.pause && checkOvertaking()) {
+        if (state.status.goal.current < state.status.goal.max) {
+          const newGoal = state.status.goal.current + 1;
+          updateGoal(newGoal);
+        } else {
+          updateGoal(0);
+        }
+        if (state.status.goal.current === state.status.goal.max) {
+          updateSpeed();
+          updateLevel();
+        }
+        updateScore();
+        updateHiScore();
       }
-      state.status.score += 100 + 20 * state.status.level;
-      state.status.hiScore = state.status.score;
-    }
+    };
+
+    return {
+      updateAll,
+    };
   };
 
   const playGame = () => {
@@ -249,7 +292,7 @@ const createGame = () => {
 
     moveObject(commandRivalCars);
     moveObject(commandWalls);
-    updateStatus();
+    updateStatus().updateAll();
 
     setTimeout(playGame, speed().getSpeed());
   };

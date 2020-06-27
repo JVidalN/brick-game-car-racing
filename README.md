@@ -34,6 +34,10 @@
   <a href="#memo-license">License</a>
 </p>
 
+<p align="center">
+  <img src="assets/github/brick-game-car-racing.gif" width="30%">
+</p>
+
 <h3 align="center">
   <a href="https://jvidaln.github.io/brick-game-car-racing/">
     <img alt="Demo On GitHub Pages" src="https://dummyimage.com/240x46/6b506b/ffffff.png&text=Demo+On+Git+Pages">
@@ -80,15 +84,15 @@
 - Hi-Score - Maximum points reached.
 - Goal:
   - Ganha 1 point per car overtaken.
-  - 50 points limit.
-- Speed - Increases by 1x for every 50 Goal points achieved.
-- Level - Go up 1 level for every 50 points achieved in Goal with Speed ​​3.
+  - 25 points limit.
+- Level - Increases 1 level for every 2x speed increase.
+- Speed ​​- Increases by 1x for every 25 points achieved from the Goal.
 - Score:
-  - Level 1 e Speed 1: 100 points per car overtaken.
-  - Level 1 e Speed 2: 150 points per car overtaken.
-  - Level 1 e Speed 3: 200 points per car overtaken.
-  - Level 2 e Speed 3: 210 points per car overtaken.
-  - Level 2 e Speed 4: 210 points per car overtaken.
+  - Level 1 and Speed 1: 50 points per car overtaken.
+  - Level 1 and Speed 2: 75 points per car overtaken.
+  - Level 2 and Speed 3: 100 points per car overtaken.
+  - Level 2 and Speed 4: 125 points per car overtaken.
+  - Level 3 and Speed 5: 150 points per car overtaken.
 
 ## :rocket: Technologies and Features
 

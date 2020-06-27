@@ -34,6 +34,10 @@
   <a href="#memo-licença">Licença</a>
 </p>
 
+<p align="center">
+  <img src="assets/github/brick-game-car-racing.gif" width="30%">
+</p>
+
 <h3 align="center">
   <a href="https://jvidaln.github.io/brick-game-car-racing/">
     <img alt="Demo On GitHub Pages" src="https://dummyimage.com/240x46/6b506b/ffffff.png&text=Demo+On+Git+Pages">
@@ -80,15 +84,16 @@
 - Maior Pontuação - Pontos máximos alcançados.
 - Objetivo:
   - Ganha 1 ponto por carro ultrapassado.
-  - Limite de 50 pontos.
-- Velocidade - Aumenta em 1x a cada 50 pontos alcançados do Objetivo.
-- Nível - Sobe 1 nível a cada 50 pontos alcançados no Objetivo com Velocidade 3.
+  - Limite de 25 pontos.
+- Nível - Aumenta 1 nível a cada 2x de aumento na velocidade.
+- Velocidade - Aumenta em 1x a cada 25 pontos alcançados do Objetivo.
 - Pontuação:
-  - Nível 1 e Velocidade 1: 100 pontos por carro ultrapassado.
-  - Nível 1 e Velocidade 2: 150 pontos por carro ultrapassado.
-  - Nível 1 e Velocidade 3: 200 pontos por carro ultrapassado.
-  - Nível 2 e Velocidade 3: 210 pontos por carro ultrapassado.
-  - Nível 2 e Velocidade 4: 210 pontos por carro ultrapassado.
+  - Nível 1 e Velocidade 1: 50 pontos por carro ultrapassado.
+  - Nível 1 e Velocidade 2: 75 pontos por carro ultrapassado.
+  - Nível 2 e Velocidade 3: 100 pontos por carro ultrapassado.
+  - Nível 2 e Velocidade 4: 125 pontos por carro ultrapassado.
+  - Nível 3 e Velocidade 5: 150 pontos por carro ultrapassado.
+  - Nível 3 e Velocidade 6: 175 pontos por carro ultrapassado.
 
 ## :rocket: Tecnologias e Recursos
 
