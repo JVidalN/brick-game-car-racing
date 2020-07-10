@@ -66,6 +66,8 @@
   - [x] Criar Velocidade
   - [x] Exibir/Atualizar Status
 - Outros
+  - [x] Reiniciar jogo após colisão
+  - [x] Reiniciar jogo e resetar status após game over
   - [ ] Criar animação de colisão
   - [ ] Criar botão para mover por Mobile
   - [ ] Salvar maior pontuação

@@ -66,10 +66,12 @@
   - [x] Create Goal
   - [x] Show/Update Status
 - Others
+  - [x] Restart game after collision
+  - [x] Restart the game and reset the status after the game is over
   - [ ] Create collision animation
   - [ ] Create button to move by Mobile
   - [ ] Save Hi-Score
-  - [x] Include backgroud
+  - [x] Include background
   - [ ] Include sounds
   - [ ] Game over screen:
     - [ ] Score

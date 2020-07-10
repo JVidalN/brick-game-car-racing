@@ -3,6 +3,14 @@ const renderScreen = (screen, game, status, requestAnimationFrame) => {
   context.fillStyle = 'silver';
   context.clearRect(0, 0, 10, 20);
 
+  renderCars(game, context);
+  updateStatus(status, game.state.status);
+  requestAnimationFrame(() => {
+    renderScreen(screen, game, status, requestAnimationFrame);
+  });
+};
+
+const renderCars = (game, context) => {
   for (const object in game.state) {
     switch (object) {
       case 'rivalCars':
@@ -32,11 +40,6 @@ const renderScreen = (screen, game, status, requestAnimationFrame) => {
         break;
     }
   }
-
-  updateStatus(status, game.state.status);
-  requestAnimationFrame(() => {
-    renderScreen(screen, game, status, requestAnimationFrame);
-  });
 };
 
 const updateStatus = (divStatus, statusInfo) => {

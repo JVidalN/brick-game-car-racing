@@ -75,7 +75,7 @@ const createGame = () => {
     const moveFunction = acceptMoves[keyPressed];
 
     if (object && !state.pause && moveFunction) {
-      checkForCarCollision();
+      collision().checkForCarCollision();
       moveFunction(object);
     }
   };
@@ -274,8 +274,18 @@ const createGame = () => {
       }
     };
 
+    const reset = () => {
+      state.status.speed = 1;
+      state.status.life = 5;
+      state.status.level = 1;
+      state.status.score = 0;
+      state.status.hiScore = 0;
+      state.status.goal.current = 0;
+    };
+
     return {
       updateAll,
+      reset,
     };
   };
 
@@ -297,23 +307,55 @@ const createGame = () => {
     setTimeout(playGame, speed().getSpeed());
   };
 
-  const checkForCarCollision = () => {
-    if (
-      Object.values(state.rivalCars).some((rivalCar) => {
-        return (
-          rivalCar.position.y >= state.mainCar.position.y - 3 &&
-          rivalCar.position.x === state.mainCar.position.x
-        );
-      })
-    ) {
+  const collision = () => {
+    const action = () => {
+      state.status.life--;
       state.pause = true;
       state.collision = true;
-      state.status.life--;
-    }
+      if (state.status.life === 0) {
+        resetGame(true, 5);
+      } else {
+        resetGame(false, 2);
+      }
+    };
+
+    const checkForCarCollision = () => {
+      if (
+        Object.values(state.rivalCars).some((rivalCar) => {
+          return (
+            rivalCar.position.y >= state.mainCar.position.y - 3 &&
+            rivalCar.position.x === state.mainCar.position.x
+          );
+        })
+      ) {
+        action();
+      }
+    };
+
+    const resetGame = (gameOver = false, seconds = 1) => {
+      if (wait(seconds)) {
+        if (gameOver) {
+          updateStatus().reset();
+        }
+        state.collision = false;
+        state.pause = false;
+        addCars();
+      }
+    };
+
+    return { checkForCarCollision };
   };
 
-  const showCarCollision = () => {
-    state.mainCar;
+  const wait = (sec) => {
+    let passed = false;
+    const goalTime = new Date().getSeconds() + sec;
+
+    while (!passed) {
+      let current = new Date().getSeconds();
+      if (current === goalTime) passed = true;
+    }
+
+    return passed;
   };
 
   return {
