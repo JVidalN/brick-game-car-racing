@@ -1,6 +1,7 @@
 import createKeyboardListener from './keyboard-listener.js';
 import createGame from './game.js';
 import renderScreen from './render-screen.js';
+import swipe from './swipe.js';
 
 const game = createGame();
 const keyboardListener = createKeyboardListener(document);
@@ -11,9 +12,10 @@ const status = document.querySelector('div.gameStatus');
 renderScreen(screen, game, status, requestAnimationFrame);
 
 const init = () => {
+  swipe().init();
   game.addWall();
   game.addCars();
-  game.playGame();
+  // game.playGame();
 
   renderScreen(screen, game, status, requestAnimationFrame);
 };

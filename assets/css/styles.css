@@ -2,18 +2,20 @@ html,
 body {
   font-family: 'Odibee Sans', cursive;
   font-size: 12px;
-  height: 100%;
   margin: 0;
-}
-
-.gameBody {
+  padding: 0;
   height: 100%;
-  width: 100%;
+  box-sizing: border-box;
   background-image: url('../images/screen.jpg');
   background-repeat: no-repeat;
   background-size: 275px 490px;
   background-attachment: fixed;
   background-position: relative;
+}
+
+.gameBody {
+  height: 100%;
+  width: 100%;
 }
 
 .gameScreen {
