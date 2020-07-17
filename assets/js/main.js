@@ -15,7 +15,7 @@ const init = () => {
   swipe().init();
   game.addWall();
   game.addCars();
-  // game.playGame();
+  game.playGame();
 
   renderScreen(screen, game, status, requestAnimationFrame);
 };
