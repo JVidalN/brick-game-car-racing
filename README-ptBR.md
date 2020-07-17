@@ -69,7 +69,7 @@
   - [x] Reiniciar jogo após colisão
   - [x] Reiniciar jogo e resetar status após game over
   - [ ] Criar animação de colisão
-  - [ ] Criar botão para mover por Mobile
+  - [x] Incluir eventos swipe para mover por Mobile
   - [ ] Salvar maior pontuação
   - [x] Incluir plano de fundo
   - [ ] Incluir áudios

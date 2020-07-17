@@ -10,7 +10,7 @@ const createGame = () => {
       hiScore: 0,
       goal: {
         current: 0,
-        max: 2,
+        max: 25,
       },
     },
     walls: {},

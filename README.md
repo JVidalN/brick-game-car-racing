@@ -69,7 +69,7 @@
   - [x] Restart game after collision
   - [x] Restart the game and reset the status after the game is over
   - [ ] Create collision animation
-  - [ ] Create button to move by Mobile
+  - [x] Include swipe events to move by Mobile
   - [ ] Save Hi-Score
   - [x] Include background
   - [ ] Include sounds
